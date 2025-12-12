@@ -5,12 +5,14 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
+// 初始化 OpenAI GPT-3.5 模型
 const model = new ChatOpenAI({
-  apiKey: process.env.DEEPSEEK_API_KEY, // 确保是DeepSeek的Key
-  model: "deepseek-chat",
+  apiKey: process.env.OPENAI_API_KEY, // 使用 OpenAI API 密钥
+  model: "gpt-3.5-turbo", // 使用 GPT-3.5-turbo
   temperature: 0.7,
+  // 自定义兼容代理的基础地址
   configuration: {
-    baseURL: "https://api.deepseek.com/v1", // 关键：指向DeepSeek
+    baseURL: "https://api.chatanywhere.tech/v1",
   },
 });
 
